@@ -50,6 +50,13 @@ public class MaxHeapBuilder {
             heapify(arr, largest);
         }
     }
+    
+    static void buildMaxHeap(WordFreq[] arr) {
+        // Start from the last non-leaf node and heapify each node upwards
+        for (int i = arr.length/2 - 1; i >= 0; i--) {
+            heapify(arr, i);
+        }
+    }
 
 
 
