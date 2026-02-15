@@ -25,6 +25,9 @@ public class MaxHeapBuilder {
             new WordFreq("would recommend to friends",800),
             new WordFreq("visit the store",700)
         };
+        buildMaxHeap(data);
+        System.out.println("After heapified:")
+        printHeap(data);
     }
     
     static void heapify(WordFreq[] arr,  int currIndex) {
@@ -57,6 +60,16 @@ public class MaxHeapBuilder {
             heapify(arr, i);
         }
     }
+    
+    static void printHeap(WordFreq[] arr) {
+    	for (int i = 0; i < arr.length; i++) {
+    	    WordFreq obj = arr[i];  
+    	    System.out.println(obj.word + " : " + obj.frequency);
+    	}
+    }
+    
+}
+    
 
 
 
