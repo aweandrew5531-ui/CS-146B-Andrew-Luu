@@ -27,6 +27,29 @@ public class MaxHeapBuilder {
         };
     }
     
+    static void heapify(WordFreq[] arr,  int currIndex) {
+        int largest = currIndex;          
+        int left = 2 * currIndex + 1;       
+        int right = 2* currIndex + 2;      
+
+        // If left child exists and greater than root, change largest
+        if (left < arr.length && arr[left].frequency > arr[largest].frequency)
+            largest = left;
+
+        // If right child exists and greater than current largest, change largest
+        if (right < arr.length && arr[right].frequency > arr[largest].frequency)
+            largest = right;
+
+        // If largest is not the root node, swap
+        if (largest != currIndex) {
+            WordFreq temp = arr[currIndex];
+            arr[currIndex] = arr[largest];
+            arr[largest] = temp;
+
+            // Keep calling the function until the whole tree is heapified
+            heapify(arr, largest);
+        }
+    }
 
 
 
